@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Button from '@/components/Button'
 import ScrollReveal from '@/components/ScrollReveal'
+import FloatingBackground from '@/components/FloatingBackground'
 import { MapPin, Phone, Mail, Linkedin, Globe, Send, CheckCircle } from 'lucide-react'
 
 // ===========================================
@@ -89,13 +90,14 @@ export default function ContactPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="gradient-bg pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+      <section className="gradient-bg pt-28 sm:pt-32 pb-12 sm:pb-20 relative overflow-hidden">
+        <FloatingBackground />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-5xl text-white font-light mb-2"
+            className="text-3xl sm:text-4xl lg:text-5xl text-white font-light mb-2"
           >
             Let's Build Your
           </motion.h1>
@@ -103,51 +105,60 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl lg:text-5xl text-white font-bold"
+            className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold"
           >
             Leadership Team<span className="text-teal-light">.</span>
           </motion.h1>
-          
+
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-16 h-1 bg-teal-light mx-auto my-8"
+            className="w-16 h-1 bg-teal-light mx-auto my-6 sm:my-8"
           />
         </div>
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16">
+      <section className="py-10 sm:py-12 lg:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-16">
             {/* Contact Info */}
             <div>
               <ScrollReveal>
-                <h2 className="text-3xl text-navy font-semibold mb-8">Get In Touch</h2>
+                <h2 className="text-2xl sm:text-3xl text-navy font-semibold mb-6 sm:mb-8">Get In Touch</h2>
               </ScrollReveal>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((item, index) => (
                   <ScrollReveal key={item.label} delay={index * 0.1}>
-                    <div className="flex gap-5">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal/20 to-teal-light/20 flex items-center justify-center flex-shrink-0">
+                    <motion.div
+                      whileHover={{ x: 4, backgroundColor: 'rgba(42, 157, 143, 0.04)' }}
+                      className="flex gap-4 sm:gap-5 p-3 rounded-xl transition-colors"
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-teal/20 to-teal-light/20 flex items-center justify-center flex-shrink-0"
+                      >
                         <item.icon size={20} className="text-teal" />
-                      </div>
+                      </motion.div>
                       <div>
                         <h4 className="text-navy font-medium mb-1">{item.label}</h4>
                         <p className={`text-sm whitespace-pre-line ${item.highlight ? 'text-teal' : 'text-gray-600'}`}>
                           {item.value}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   </ScrollReveal>
                 ))}
               </div>
 
               {/* Nationwide Banner */}
               <ScrollReveal delay={0.4}>
-                <div className="mt-10 p-6 rounded-xl bg-gradient-to-br from-teal/10 to-teal-light/10 border border-teal/30">
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className="mt-8 sm:mt-10 p-4 sm:p-6 rounded-xl bg-gradient-to-br from-teal/10 to-teal-light/10 border border-teal/30 transition-shadow hover:shadow-md"
+                >
                   <div className="flex items-center gap-4">
                     <span className="text-2xl">🇺🇸</span>
                     <div>
@@ -155,20 +166,23 @@ export default function ContactPage() {
                       <p className="text-gray-600 text-sm">Executive search in all 50 states</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </ScrollReveal>
             </div>
 
             {/* Contact Form */}
             <ScrollReveal direction="right">
-              <div className="bg-white p-8 lg:p-10 rounded-2xl border border-gray-100 shadow-lg">
-                <h3 className="text-2xl text-navy font-semibold mb-8">Send Us a Message</h3>
+              <motion.div
+                whileHover={{ boxShadow: '0 20px 60px rgba(27, 54, 93, 0.1)' }}
+                className="bg-white p-6 sm:p-8 lg:p-10 rounded-2xl border border-gray-100 shadow-lg transition-shadow"
+              >
+                <h3 className="text-xl sm:text-2xl text-navy font-semibold mb-6 sm:mb-8">Send Us a Message</h3>
 
                 {status === 'success' ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-12"
+                    className="text-center py-8 sm:py-12"
                   >
                     <div className="w-16 h-16 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-4">
                       <CheckCircle size={32} className="text-teal" />
@@ -183,19 +197,20 @@ export default function ContactPage() {
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     <div>
                       <label className="block text-navy text-sm font-medium mb-2">
                         Full Name <span className="text-red-500">*</span>
                       </label>
-                      <input
+                      <motion.input
+                        whileFocus={{ scale: 1.01 }}
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
                         placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all hover:border-gray-300"
                       />
                     </div>
 
@@ -203,14 +218,15 @@ export default function ContactPage() {
                       <label className="block text-navy text-sm font-medium mb-2">
                         Email <span className="text-red-500">*</span>
                       </label>
-                      <input
+                      <motion.input
+                        whileFocus={{ scale: 1.01 }}
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
                         placeholder="your@email.com"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all hover:border-gray-300"
                       />
                     </div>
 
@@ -218,13 +234,14 @@ export default function ContactPage() {
                       <label className="block text-navy text-sm font-medium mb-2">
                         Company
                       </label>
-                      <input
+                      <motion.input
+                        whileFocus={{ scale: 1.01 }}
                         type="text"
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Company name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all hover:border-gray-300"
                       />
                     </div>
 
@@ -232,14 +249,15 @@ export default function ContactPage() {
                       <label className="block text-navy text-sm font-medium mb-2">
                         Message <span className="text-red-500">*</span>
                       </label>
-                      <textarea
+                      <motion.textarea
+                        whileFocus={{ scale: 1.01 }}
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
                         rows={4}
                         placeholder="Tell us about your hiring needs..."
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all resize-none hover:border-gray-300"
                       />
                     </div>
 
@@ -274,7 +292,7 @@ export default function ContactPage() {
                     )}
                   </form>
                 )}
-              </div>
+              </motion.div>
             </ScrollReveal>
           </div>
         </div>

@@ -7,6 +7,7 @@ import Button from '@/components/Button'
 import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/ScrollReveal'
 import { StackedRotatingWords, AnimatedUnderline } from '@/components/AnimatedText'
 import CountUp from '@/components/CountUp'
+import FloatingBackground from '@/components/FloatingBackground'
 import { Check, Building2, Users, Briefcase, Cpu, Globe } from 'lucide-react'
 
 const rotatingWords = ['speed', 'trust', 'precision', 'results']
@@ -40,21 +41,12 @@ export default function Home() {
       <section className="gradient-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
         {/* Animated background particles */}
         <div className="hero-particles" />
-        
+
         {/* Floating decorative elements */}
-        <motion.div
-          animate={{ y: [0, -20, 0], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-[15%] w-64 h-64 rounded-full bg-teal-light/10 blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 left-[10%] w-80 h-80 rounded-full bg-white/5 blur-3xl"
-        />
-        
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 w-full relative z-10">
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
+        <FloatingBackground />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20 w-full relative z-10">
+          <div className="flex flex-col lg:flex-row items-start gap-8 sm:gap-12 lg:gap-20">
             {/* Left - Rotating Words */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -62,11 +54,11 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:w-1/4"
             >
-              <span className="text-white text-4xl lg:text-5xl font-light">High</span>
+              <span className="text-white text-3xl sm:text-4xl lg:text-5xl font-light">High</span>
               <StackedRotatingWords
                 words={rotatingWords}
                 interval={2500}
-                className="text-4xl lg:text-5xl font-light mt-4 space-y-2"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light mt-4 space-y-2"
                 activeClassName="text-teal-light"
                 inactiveClassName="text-white/30"
               />
@@ -79,7 +71,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="lg:w-3/4"
             >
-              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
+              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-tight">
                 A{' '}
                 <AnimatedUnderline delay={1}>
                   <span className="text-white">human-first</span>
@@ -95,33 +87,33 @@ export default function Home() {
       </section>
 
       {/* Company Description */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
           <ScrollReveal>
-            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-2">
               The future is digital.
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
               Our difference is human.
             </h2>
           </ScrollReveal>
-          
+
           <ScrollReveal delay={0.2}>
             <div className="w-16 h-1 bg-teal mx-auto mb-10" />
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              VentureAI Search Partners is a contingency-based executive search firm that builds C-suite and board 
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+              VentureAI Search Partners is a contingency-based executive search firm that builds C-suite and board
               leadership teams for high-growth private and public companies, including VC- and PE-backed organizations.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.4}>
-            <p className="text-lg text-gray-600 leading-relaxed mb-10">
-              In a high-tech world, we deliver a human-first executive search experience—built for speed, 
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-10">
+              In a high-tech world, we deliver a human-first executive search experience—built for speed,
               driven by agility, and powered by partner expertise.
             </p>
           </ScrollReveal>
@@ -135,12 +127,12 @@ export default function Home() {
       {/* Partner-Led Section */}
       <section className="grid lg:grid-cols-2 min-h-[600px]">
         {/* Left - Dark with text */}
-        <div className="bg-gray-900 px-6 lg:px-16 py-20 flex flex-col justify-center">
+        <div className="bg-gray-900 px-4 sm:px-6 lg:px-16 py-12 sm:py-16 lg:py-20 flex flex-col justify-center">
           <ScrollReveal direction="left">
-            <h2 className="text-white text-3xl lg:text-4xl font-light mb-2">
+            <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-light mb-2">
               Partner-Led. High Touch.
             </h2>
-            <h2 className="text-white text-3xl lg:text-4xl font-bold mb-8">
+            <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">
               Built for Outcomes.
             </h2>
             <div className="w-16 h-1 bg-teal mb-8" />
@@ -148,15 +140,15 @@ export default function Home() {
 
           <ScrollReveal direction="left" delay={0.2}>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Every search is led by a senior partner who remains accountable from kickoff through close. 
-              Our boutique structure enables speed, precision, and direct access - ensuring a deep understanding 
+              Every search is led by a senior partner who remains accountable from kickoff through close.
+              Our boutique structure enables speed, precision, and direct access - ensuring a deep understanding
               of each investment thesis and leadership mandate.
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="left" delay={0.3}>
             <p className="text-gray-400 leading-relaxed mb-10">
-              With experience spanning the full investment lifecycle - from first institutional capital to exit - 
+              With experience spanning the full investment lifecycle - from first institutional capital to exit -
               we understand the leadership profiles that drive performance and liquidity outcomes.
             </p>
           </ScrollReveal>
@@ -188,67 +180,67 @@ export default function Home() {
       </section>
 
       {/* Statistics Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal/20 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal/20 to-transparent" />
-        
-        <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
           <ScrollReveal>
-            <h2 className="text-4xl lg:text-5xl mb-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-2">
               <span className="animated-gradient-text">Welcome to a trusted name</span>
             </h2>
-            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-4">
               in executive search.
             </h2>
-            <p className="text-gray-500 mb-16">and the numbers back it up</p>
+            <p className="text-gray-500 mb-12 sm:mb-16">and the numbers back it up</p>
           </ScrollReveal>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-16">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 sm:gap-12 md:gap-16">
             {/* Stat 1 */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.05 }}
               className="text-center group"
             >
-              <div className="text-5xl lg:text-7xl font-bold gradient-text mb-2 group-hover:animated-gradient-text transition-all">
+              <div className="text-4xl sm:text-5xl lg:text-7xl font-bold gradient-text mb-2 group-hover:animated-gradient-text transition-all">
                 <CountUp target={100} suffix="%" duration={2} />
               </div>
               <p className="text-gray-500 text-sm">contingency-based<br/>no retainer fees</p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: 96 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="hidden md:block w-px bg-gradient-to-b from-transparent via-teal to-transparent rotate-12" 
+              className="hidden md:block w-px bg-gradient-to-b from-transparent via-teal to-transparent rotate-12"
             />
 
             {/* Stat 2 */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.05 }}
               className="text-center group"
             >
-              <div className="text-5xl lg:text-7xl font-bold gradient-text mb-2">
+              <div className="text-4xl sm:text-5xl lg:text-7xl font-bold gradient-text mb-2">
                 <CountUp target={1} suffix=" Year" duration={1.5} delay={0.3} />
               </div>
               <p className="text-gray-500 text-sm">guarantee on<br/>all placements</p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: 96 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="hidden md:block w-px bg-gradient-to-b from-transparent via-teal to-transparent rotate-12" 
+              className="hidden md:block w-px bg-gradient-to-b from-transparent via-teal to-transparent rotate-12"
             />
 
             {/* Stat 3 */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.05 }}
               className="text-center group"
             >
-              <div className="text-5xl lg:text-7xl font-bold gradient-text mb-2">
+              <div className="text-4xl sm:text-5xl lg:text-7xl font-bold gradient-text mb-2">
                 <CountUp target={50} duration={2} delay={0.6} />
               </div>
               <p className="text-gray-500 text-sm">states covered<br/>nationwide</p>
@@ -258,20 +250,20 @@ export default function Home() {
       </section>
 
       {/* Industries Section */}
-      <section className="bg-gray-900 py-20">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+      <section className="bg-gray-900 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
           <ScrollReveal>
-            <h2 className="text-3xl lg:text-4xl text-white text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white text-center mb-8 sm:mb-12">
               Industries We <span className="text-teal-light">Specialize In</span>
             </h2>
           </ScrollReveal>
 
-          <StaggerContainer className="flex flex-wrap justify-center gap-4" staggerDelay={0.08}>
+          <StaggerContainer className="flex flex-wrap justify-center gap-3 sm:gap-4" staggerDelay={0.08}>
             {industries.map((industry) => (
               <StaggerItem key={industry.name}>
                 <motion.span
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className={`inline-block px-6 py-3 rounded-full text-sm font-medium transition-all cursor-default ${
+                  className={`inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all cursor-default ${
                     industry.primary
                       ? 'bg-gradient-to-r from-teal to-teal-light text-white'
                       : 'border border-gray-700 text-white hover:border-teal'
@@ -284,9 +276,9 @@ export default function Home() {
           </StaggerContainer>
 
           <ScrollReveal delay={0.5}>
-            <div className="mt-12 max-w-xl mx-auto p-6 rounded-xl bg-white/5 border border-white/10 text-center">
+            <div className="mt-8 sm:mt-12 max-w-xl mx-auto p-4 sm:p-6 rounded-xl bg-white/5 border border-white/10 text-center">
               <span className="text-xl mr-3">🇺🇸</span>
-              <span className="text-white">
+              <span className="text-white text-sm sm:text-base">
                 Providing <strong>Nationwide</strong> Executive Search Services in All 50 States
               </span>
             </div>
@@ -295,20 +287,23 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Preview */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div>
               <ScrollReveal>
-                <h2 className="text-3xl lg:text-4xl text-gray-900 mb-8">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 mb-6 sm:mb-8">
                   Why Companies <span className="text-teal">Choose Us</span>
                 </h2>
               </ScrollReveal>
 
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 {whyUsPoints.map((point, index) => (
                   <ScrollReveal key={point} delay={index * 0.1}>
-                    <div className="flex items-center gap-4">
+                    <motion.div
+                      whileHover={{ x: 4, backgroundColor: 'rgba(42, 157, 143, 0.05)' }}
+                      className="flex items-center gap-4 p-2 rounded-lg transition-colors"
+                    >
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         className="w-7 h-7 rounded-full bg-gradient-to-br from-teal to-teal-light flex items-center justify-center flex-shrink-0"
@@ -316,13 +311,13 @@ export default function Home() {
                         <Check size={14} className="text-white" />
                       </motion.div>
                       <span className="text-gray-700">{point}</span>
-                    </div>
+                    </motion.div>
                   </ScrollReveal>
                 ))}
               </div>
 
               <ScrollReveal delay={0.5}>
-                <div className="mt-10">
+                <div className="mt-8 sm:mt-10">
                   <Button href="/why-us">LEARN MORE</Button>
                 </div>
               </ScrollReveal>
@@ -330,53 +325,58 @@ export default function Home() {
 
             {/* Stats Card */}
             <ScrollReveal direction="right">
-              <div className="p-10 rounded-3xl bg-gradient-to-br from-navy/5 to-teal/5 border border-teal/20">
-                <div className="mb-8">
-                  <div className="text-5xl lg:text-6xl font-bold gradient-text">
+              <motion.div
+                whileHover={{ y: -4, boxShadow: '0 20px 60px rgba(42, 157, 143, 0.15)' }}
+                className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-navy/5 to-teal/5 border border-teal/20 transition-shadow"
+              >
+                <div className="mb-6 sm:mb-8">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text">
                     <CountUp target={100} suffix="+" duration={2} />
                   </div>
-                  <p className="text-gray-700 text-lg mt-2">Executive Positions We Staff</p>
+                  <p className="text-gray-700 text-base sm:text-lg mt-2">Executive Positions We Staff</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="p-6 bg-white rounded-xl shadow-sm"
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <motion.div
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    className="p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="text-3xl font-bold text-navy">50</div>
-                    <p className="text-sm text-gray-500">VP+ & Board Roles</p>
+                    <div className="text-2xl sm:text-3xl font-bold text-navy">50</div>
+                    <p className="text-xs sm:text-sm text-gray-500">VP+ & Board Roles</p>
                   </motion.div>
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="p-6 bg-white rounded-xl shadow-sm"
+                  <motion.div
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    className="p-4 sm:p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="text-3xl font-bold text-navy">50</div>
-                    <p className="text-sm text-gray-500">Senior Tech Roles</p>
+                    <div className="text-2xl sm:text-3xl font-bold text-navy">50</div>
+                    <p className="text-xs sm:text-sm text-gray-500">Senior Tech Roles</p>
                   </motion.div>
                 </div>
-              </div>
+              </motion.div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Sister Company Banner */}
-      <section className="bg-gradient-to-r from-teal to-teal-light py-16 text-center text-white">
-        <ScrollReveal>
-          <p className="text-sm tracking-widest mb-2 opacity-90">A SISTER COMPANY OF</p>
-          <h3 className="text-3xl lg:text-4xl font-semibold mb-2">Blue Chip Staffing LLC</h3>
-          <p className="text-lg opacity-90">"Providing Nationwide Recruitment Services"</p>
-        </ScrollReveal>
+      <section className="bg-gradient-to-r from-teal to-teal-light py-10 sm:py-12 lg:py-16 text-center text-white">
+        <div className="px-4 sm:px-6">
+          <ScrollReveal>
+            <p className="text-xs sm:text-sm tracking-widest mb-2 opacity-90">A SISTER COMPANY OF</p>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2">Blue Chip Staffing LLC</h3>
+            <p className="text-base sm:text-lg opacity-90">"Providing Nationwide Recruitment Services"</p>
+          </ScrollReveal>
+        </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-900 py-20 text-center">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="bg-gray-900 py-12 sm:py-16 lg:py-20 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="text-3xl lg:text-4xl text-white font-light mb-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white font-light mb-2">
               Ready to build your leadership team?
             </h2>
-            <h2 className="text-3xl lg:text-4xl text-teal-light mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-teal-light mb-8 sm:mb-10">
               Let's start the conversation.
             </h2>
           </ScrollReveal>

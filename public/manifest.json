@@ -1,0 +1,16 @@
+{
+  "name": "VentureAI Search Partners",
+  "short_name": "VentureAI",
+  "description": "A human-first executive search experience. Building C-suite and board leadership teams for high-growth VC and PE-backed companies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B365D",
+  "theme_color": "#2A9D8F",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
